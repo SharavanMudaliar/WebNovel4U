@@ -1,4 +1,81 @@
+Install requirements
+pip install -r requirements.txt --user
 
+$ lncrawl -h
+================================================================================
+╭╮╱╱╱╱╱╱╭╮╱╭╮╱╱╱╱╱╱╱╱╱╱╱╱╭╮╱╭━━━╮╱╱╱╱╱╱╱╱╱╭╮
+┃┃╱╱╱╱╱╱┃┃╭╯╰╮╱╱╱╱╱╱╱╱╱╱╱┃┃╱┃╭━╮┃╱╱╱╱╱╱╱╱╱┃┃
+┃┃╱╱╭┳━━┫╰┻╮╭╋━╮╭━━┳╮╭┳━━┫┃╱┃┃╱╰╋━┳━━┳╮╭╮╭┫┃╭━━┳━╮
+┃┃╱╭╋┫╭╮┃╭╮┃┃┃╭╮┫╭╮┃╰╯┃┃━┫┃╱┃┃╱╭┫╭┫╭╮┃╰╯╰╯┃┃┃┃━┫╭╯
+┃╰━╯┃┃╰╯┃┃┃┃╰┫┃┃┃╰╯┣╮╭┫┃━┫╰╮┃╰━╯┃┃┃╭╮┣╮╭╮╭┫╰┫┃━┫┃
+╰━━━┻┻━╮┣╯╰┻━┻╯╰┻━━╯╰╯╰━━┻━╯╰━━━┻╯╰╯╰╯╰╯╰╯╰━┻━━┻╯
+╱╱╱╱╱╭━╯┃ 
+╱╱╱╱╱╰━━╯
+--------------------------------------------------------------------------------
+usage: lncrawl [options...]
+       lightnovel-crawler [options...]
+
+options:
+  -h, --help            show this help message and exit
+
+  -v, --version         show program's version number and exit
+  -l                    Set log levels. (-l = warn, -ll = info, -lll = debug).
+  --log-file [FILE]     To store application logs to a file.
+  --list-sources        Display a list of available sources.
+  --crawler [FILES ...]
+                        Load additional crawler files.
+  -s URL, --source URL  Profile page url of the novel.
+  -q STR, --query STR   Novel query followed by list of source sites.
+  -x [REGEX], --sources [REGEX]
+                        Filter out the sources to search for novels.
+  --login USER PASSWD   User name/email address and password for login.
+  --format E [E ...]    Define which formats to output. Default: all.
+  --add-source-url      Add source url at the end of each chapter.
+  --single              Put everything in a single book.
+  --multi               Build separate books by volumes.
+  -o PATH, --output PATH
+                        Path where the downloads to be stored.
+  --filename NAME       Set the output file name
+  --filename-only       Skip appending chapter range with file name
+  -f, --force           Force replace any existing folder.
+  -i, --ignore          Ignore any existing folder (do not replace).
+  --all                 Download all chapters.
+  --first [COUNT]       Download first few chapters (default: 10).
+  --last [COUNT]        Download last few chapters (default: 10).
+  --page START [STOP. ...]
+                        The start and final chapter urls.
+  --range FROM TO., --index FROM TO., --chapter FROM TO.
+                        The start and final chapter indexes.
+  --volumes [N ...]     The list of volume numbers to download.
+  --chapters [URL ...]  A list of specific chapter urls.
+  --proxy-file FILE     Proxies as SCHEME://HOST:PORT@USER:PASSWORD format in
+                        each line. All except HOST are optional
+  --auto-proxy          Use some free proxies from https://free-proxy-
+                        list.net/
+  --bot {console,telegram,discord,lookup}
+                        Select a bot. Default: console.
+  --shard-id [SHARD_ID]
+                        Discord bot shard id (default: 0)
+  --shard-count [SHARD_COUNT]
+                        Discord bot shard counts (default: 1)
+  --selenium-grid URL   Selenium Grid URL for Chrome Webdriver
+  --suppress            Suppress all input prompts and use defaults.
+  --ignore-images       Ignore images in chapters when downloading.
+  --close-directly      Do not prompt to close at the end for windows
+                        platforms.
+  --resume [NAME/URL]   Resume download of a novel containing in
+                        /home/runner/work/lightnovel-crawler/lightnovel-
+                        crawler/Lightnovels
+  ENV                   [chatbots only] Pass query string at the end of all
+                        options. It will be use instead of .env file. Sample:
+                        "BOT=discord&DISCORD_TOKEN=***&LOG_LEVEL=DEBUG"
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~
+
+--------------------------------------------------------------------------------
+ 🔗  https://github.com/dipu-bd/lightnovel-crawler/issues 
+================================================================================
 ```
 CNlightnovel Crawler
 ├─ .editorconfig
@@ -16,13 +93,8 @@ CNlightnovel Crawler
 │     ├─ index-gen.yml
 │     ├─ lint-pr.yml
 │     └─ release.yml
-├─ .gitignore
-├─ Aptfile
-├─ LICENSE
-├─ Procfile
 ├─ README.pip
 ├─ app.json
-├─ compose.yml
 ├─ etc
 │  └─ wuxiaworld.com
 │     ├─ help.md
@@ -67,18 +139,11 @@ CNlightnovel Crawler
 │  │  │  ├─ output_style.py
 │  │  │  ├─ range_selection.py
 │  │  │  └─ resume_download.py
-│  │  ├─ discord
-│  │  │  ├─ __init__.py
-│  │  │  ├─ config.py
-│  │  │  ├─ discord_bot.py
-│  │  │  └─ message_handler.py
 │  │  ├─ lookup
 │  │  │  ├─ __init__.py
 │  │  │  ├─ analyze.py
 │  │  │  ├─ generator.py
 │  │  │  └─ prompts.py
-│  │  └─ telegram
-│  │     └─ __init__.py
 │  ├─ constants.py
 │  ├─ core
 │  │  ├─ __init__.py
@@ -162,25 +227,6 @@ CNlightnovel Crawler
 │  ├─ lncrawl-icon.png
 │  ├─ lncrawl-web.png
 │  └─ lncrawl.ico
-├─ scripts
-│  ├─ Dockerfile
-│  ├─ entry_point.sh
-│  ├─ index_gen.py
-│  ├─ lint.bat
-│  ├─ lint.sh
-│  ├─ lncrawl.service
-│  ├─ publish.bat
-│  ├─ publish.sh
-│  ├─ push_tag.bat
-│  ├─ push_tag.sh
-│  ├─ push_tag_force.bat
-│  ├─ push_tag_force.sh
-│  ├─ rebrandly.sh
-│  ├─ start.sh
-│  └─ stop.sh
-├─ setup.cfg
-├─ setup.py
-├─ setup_pyi.py
 ├─ sources
 │  ├─ __init__.py
 │  ├─ _examples
@@ -585,32 +631,7 @@ CNlightnovel Crawler
 │     ├─ uukanshu.py
 │     ├─ uukanshu_sj.py
 │     └─ xbanxia.py
-└─ .git
-   ├─ description
-   ├─ hooks
-   │  ├─ applypatch-msg.sample
-   │  ├─ commit-msg.sample
-   │  ├─ fsmonitor-watchman.sample
-   │  ├─ post-update.sample
-   │  ├─ pre-applypatch.sample
-   │  ├─ pre-commit.sample
-   │  ├─ pre-merge-commit.sample
-   │  ├─ pre-push.sample
-   │  ├─ pre-rebase.sample
-   │  ├─ pre-receive.sample
-   │  ├─ prepare-commit-msg.sample
-   │  ├─ push-to-checkout.sample
-   │  ├─ sendemail-validate.sample
-   │  └─ update.sample
-   ├─ info
-   │  └─ exclude
-   ├─ refs
-   │  ├─ heads
-   │  └─ tags
-   ├─ HEAD
-   ├─ config
-   └─ objects
-      ├─ pack
-      └─ info
+
+      
 
 ```
