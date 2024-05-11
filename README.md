@@ -1,10 +1,6 @@
-Install requirements
+Install requirements - pip install -r requirements.txt --user
 
-pip install -r requirements.txt --user
-
-To run
-
-$ lncrawl -h
+To run - lncrawl -h
 ================================================================================
 
 ╭╮╱╱╱╱╱╱╭╮╱╭╮╱╱╱╱╱╱╱╱╱╱╱╱╭╮╱╭━━━╮╱╱╱╱╱╱╱╱╱╭╮
