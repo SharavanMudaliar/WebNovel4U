@@ -2,6 +2,8 @@ Install requirements
 
 pip install -r requirements.txt --user
 
+To run
+
 $ lncrawl -h
 ================================================================================
 
@@ -16,7 +18,6 @@ $ lncrawl -h
 --------------------------------------------------------------------------------
 
 usage: lncrawl [options...]
-
        lightnovel-crawler [options...]
 
 options:
@@ -85,15 +86,17 @@ options:
   
   --close-directly      Do not prompt to close at the end for windows
                         platforms.
+                        
   --resume [NAME/URL]   Resume download of a novel containing in
-  
                         /home/runner/work/lightnovel-crawler/lightnovel-
                         crawler/Lightnovels
+                        
   ENV                   [chatbots only] Pass query string at the end of all
                         options. It will be use instead of .env file. Sample:
                         "BOT=discord&DISCORD_TOKEN=***&LOG_LEVEL=DEBUG"
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ~~
 
 --------------------------------------------------------------------------------
