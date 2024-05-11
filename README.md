@@ -4,6 +4,7 @@ pip install -r requirements.txt --user
 
 $ lncrawl -h
 ================================================================================
+
 ╭╮╱╱╱╱╱╱╭╮╱╭╮╱╱╱╱╱╱╱╱╱╱╱╱╭╮╱╭━━━╮╱╱╱╱╱╱╱╱╱╭╮
 ┃┃╱╱╱╱╱╱┃┃╭╯╰╮╱╱╱╱╱╱╱╱╱╱╱┃┃╱┃╭━╮┃╱╱╱╱╱╱╱╱╱┃┃
 ┃┃╱╱╭┳━━┫╰┻╮╭╋━╮╭━━┳╮╭┳━━┫┃╱┃┃╱╰╋━┳━━┳╮╭╮╭┫┃╭━━┳━╮
@@ -13,35 +14,57 @@ $ lncrawl -h
 ╱╱╱╱╱╭━╯┃ 
 ╱╱╱╱╱╰━━╯
 --------------------------------------------------------------------------------
+
 usage: lncrawl [options...]
+
        lightnovel-crawler [options...]
 
 options:
+
   -h, --help            show this help message and exit
 
   -v, --version         show program's version number and exit
+  
   -l                    Set log levels. (-l = warn, -ll = info, -lll = debug).
+  
   --log-file [FILE]     To store application logs to a file.
+  
   --list-sources        Display a list of available sources.
+  
   --crawler [FILES ...]
                         Load additional crawler files.
+                        
   -s URL, --source URL  Profile page url of the novel.
+  
   -q STR, --query STR   Novel query followed by list of source sites.
+  
   -x [REGEX], --sources [REGEX]
                         Filter out the sources to search for novels.
+                        
   --login USER PASSWD   User name/email address and password for login.
+  
   --format E [E ...]    Define which formats to output. Default: all.
+  
   --add-source-url      Add source url at the end of each chapter.
+  
   --single              Put everything in a single book.
+  
   --multi               Build separate books by volumes.
+  
   -o PATH, --output PATH
                         Path where the downloads to be stored.
+                        
   --filename NAME       Set the output file name
+  
   --filename-only       Skip appending chapter range with file name
+  
   -f, --force           Force replace any existing folder.
+  
   -i, --ignore          Ignore any existing folder (do not replace).
   --all                 Download all chapters.
+  
   --first [COUNT]       Download first few chapters (default: 10).
+  
   --last [COUNT]        Download last few chapters (default: 10).
   --page START [STOP. ...]
                         The start and final chapter urls.
@@ -53,18 +76,17 @@ options:
                         each line. All except HOST are optional
   --auto-proxy          Use some free proxies from https://free-proxy-
                         list.net/
-  --bot {console,telegram,discord,lookup}
+  --bot {console,lookup}
                         Select a bot. Default: console.
-  --shard-id [SHARD_ID]
-                        Discord bot shard id (default: 0)
-  --shard-count [SHARD_COUNT]
-                        Discord bot shard counts (default: 1)
-  --selenium-grid URL   Selenium Grid URL for Chrome Webdriver
+  
   --suppress            Suppress all input prompts and use defaults.
+  
   --ignore-images       Ignore images in chapters when downloading.
+  
   --close-directly      Do not prompt to close at the end for windows
                         platforms.
   --resume [NAME/URL]   Resume download of a novel containing in
+  
                         /home/runner/work/lightnovel-crawler/lightnovel-
                         crawler/Lightnovels
   ENV                   [chatbots only] Pass query string at the end of all
